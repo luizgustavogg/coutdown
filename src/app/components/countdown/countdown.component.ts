@@ -63,7 +63,7 @@ export class CountdownComponent implements OnInit, OnDestroy, AfterViewInit {
     this.intervalId = setInterval(() => {
       const now = new Date();
       const endOfDay = new Date();
-      endOfDay.setHours(19, 10, 30, 999);
+      endOfDay.setHours(23, 59, 59, 999);
       const diff = endOfDay.getTime() - now.getTime();
 
       if (diff <= 0 && !this.confettiFired) {
