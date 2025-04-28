@@ -1,0 +1,74 @@
+<div class="container-principal fade-in">
+  <div *ngIf="mostrarSwiper" class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let image of images">
+        <img [src]="image" alt="Imagem" />
+      </div>
+    </div>
+  </div>
+  <div *ngIf="mensagemAtiva" class="mensagem-aniversario">
+    <h1>Feliz Aniversário Khalifa_GaeCo 🎉</h1>
+  </div>
+  <div class="countdown ">
+    <div class="time-container">
+      <div class="time">
+        <span id="hours">{{ hours }}</span>
+        <small>horas</small>
+      </div>
+
+      <div class="time">
+        <span id="minutes">{{ minutes }}</span>
+        <small>minutos</small>
+      </div>
+
+      <div class="time">
+        <span id="seconds">{{ seconds }}</span>
+        <small>segundos</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="liberarLanding" class="landing-container">
+  <div class="landing-image">
+    <img src="https://i.imgur.com/O3g0d8t.png" alt="Imagem" />
+  </div>
+
+  <div class="landing-text">
+    <h1>Explore Momentos Inesquecíveis</h1>
+    <p>
+      Capturando emoções, celebrando histórias e eternizando momentos especiais.
+      Conheça um universo repleto de experiências únicas.
+    </p>
+  </div>
+</div>
+
+<div *ngIf="liberarLanding" class="landing-container lad-video">
+  <div class="landing-text">
+    <h1>Conheça o Evento Especial 🎥</h1>
+    <p>
+      Um momento único para celebrar, aprender e viver experiências incríveis.
+      Não perca essa oportunidade de fazer parte dessa história!
+    </p>
+  </div>
+
+  <div class="landing-video">
+    <video [src]="videoUrl" autoplay muted loop controls playsinline></video>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" *ngIf="mostrarModal">
+  <div class="modal-content animate-modal">
+    <h2>🔒 Área Restrita</h2>
+    <p>Digite a resposta correta para continuar</p>
+    <input
+      type="text"
+      [(ngModel)]="respostaUsuario"
+      (keydown.enter)="validarResposta()"
+      placeholder="Sua resposta"
+    />
+    <button (click)="validarResposta()">Confirmar</button>
+    <p *ngIf="erroResposta" class="erro-texto">Resposta incorreta. Tente novamente!</p>
+  </div>
+</div>
