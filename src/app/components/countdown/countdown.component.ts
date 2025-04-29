@@ -9,11 +9,20 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import confetti from 'canvas-confetti';
 import Swiper from 'swiper';
+import { CarroselImagensComponent } from '../carrosel-imagens/carrosel-imagens.component';
+import { LadingImageComponent } from '../lading-image/lading-image.component';
+import { LadingVideoComponent } from '../lading-video/lading-video.component';
 
 @Component({
   selector: 'app-countdown',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    CarroselImagensComponent,
+    LadingImageComponent,
+    LadingVideoComponent,
+  ],
   templateUrl: './countdown.component.html',
   styleUrls: ['./countdown.component.scss'],
 })
@@ -30,16 +39,20 @@ export class CountdownComponent implements OnInit, OnDestroy, AfterViewInit {
   mostrarModal: boolean = true;
   respostaUsuario: string = '';
   erroResposta: boolean = false;
-  respostaCorreta: string = 'khalifa'; // <<< Define aqui a resposta correta
+  respostaCorreta: string = '123'; // <<< Define aqui a resposta correta
 
-  images: string[] = [ // link das imagens
-    'https://i.imgur.com/QST6Ipp.png',
-    'https://i.imgur.com/ZeGYhjA.png',
-    'https://i.imgur.com/O3g0d8t.png',
-    'https://i.imgur.com/7qMBZGT.png',
+  imagensCarrosel: string[] = [
+    // link das imagens
+    'https://picsum.photos/id/10/800/600',
+    'https://picsum.photos/id/11/800/600',
+    'https://picsum.photos/id/12/800/600',
+    'https://picsum.photos/id/13/800/600',
+    'https://picsum.photos/id/14/800/600',
   ];
 
-  videoUrl: string = 'https://i.imgur.com/OeTZYFd.mp4'; // link do video
+  ladingImage: string = 'https://picsum.photos/id/32/800/600';
+
+  ladingVideo: string = 'https://cdn.pixabay.com/video/2025/03/29/268528_large.mp4'; // link do video
 
   constructor(private ngZone: NgZone) {}
 
